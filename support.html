@@ -274,7 +274,7 @@ footer a:hover {
 
   </style>
 </head>
-<body>
+<body data-page="support">
   <div class="container">
     <header class="navbar">
       <a href="index.html" class="brand">
@@ -282,8 +282,8 @@ footer a:hover {
         <span>Sticker App</span>
       </a>
       <nav class="nav-links">
-        <a href="index.html">Privacy Policy</a>
-        <a href="support.html" class="active">Support</a>
+        <a href="index.html" id="nav-privacy">Gizlilik Politikası</a>
+        <a href="support.html" id="nav-support" class="active">Destek</a>
       </nav>
       <div class="lang-picker">
         <span>🌐</span>
@@ -728,7 +728,7 @@ footer a:hover {
     </main>
 
     <footer>
-      <p>© 2026 Sticker App · <a href="index.html">Privacy Policy</a></p>
+      <p>© 2026 Sticker App · <a href="index.html" id="footer-link">Gizlilik Politikası</a></p>
     </footer>
   </div>
 
@@ -736,17 +736,30 @@ footer a:hover {
 <script>
   const languages = ['tr', 'en', 'de', 'fr', 'es', 'it', 'pt-BR', 'ru', 'ar', 'hi', 'id'];
 
+  const ui = {
+    'tr': { navPrivacy: 'Gizlilik Politikası', navSupport: 'Destek', titleIndex: 'Sticker App – Gizlilik Politikası', titleSupport: 'Sticker App – Destek & SSS', footerSupport: 'Destek & Yardım Merkezi', footerPrivacy: 'Gizlilik Politikası' },
+    'en': { navPrivacy: 'Privacy Policy', navSupport: 'Support', titleIndex: 'Sticker App – Privacy Policy', titleSupport: 'Sticker App – Support & FAQ', footerSupport: 'Support & Help Center', footerPrivacy: 'Privacy Policy' },
+    'de': { navPrivacy: 'Datenschutz', navSupport: 'Support', titleIndex: 'Sticker App – Datenschutzerklärung', titleSupport: 'Sticker App – Support & FAQ', footerSupport: 'Support & Hilfe-Center', footerPrivacy: 'Datenschutzerklärung' },
+    'fr': { navPrivacy: 'Confidentialité', navSupport: 'Assistance', titleIndex: 'Sticker App – Politique de Confidentialité', titleSupport: 'Sticker App – Assistance & FAQ', footerSupport: 'Centre d\'Assistance', footerPrivacy: 'Politique de Confidentialité' },
+    'es': { navPrivacy: 'Privacidad', navSupport: 'Soporte', titleIndex: 'Sticker App – Política de Privacidad', titleSupport: 'Sticker App – Soporte y FAQ', footerSupport: 'Centro de Ayuda y Soporte', footerPrivacy: 'Política de Privacidad' },
+    'it': { navPrivacy: 'Privacy', navSupport: 'Supporto', titleIndex: 'Sticker App – Informativa sulla Privacy', titleSupport: 'Sticker App – Supporto e FAQ', footerSupport: 'Centro Assistenza e Supporto', footerPrivacy: 'Informativa sulla Privacy' },
+    'pt-BR': { navPrivacy: 'Privacidade', navSupport: 'Suporte', titleIndex: 'Sticker App – Política de Privacidade', titleSupport: 'Sticker App – Suporte e FAQ', footerSupport: 'Central de Ajuda e Suporte', footerPrivacy: 'Política de Privacidade' },
+    'ru': { navPrivacy: 'Конфиденциальность', navSupport: 'Поддержка', titleIndex: 'Sticker App – Политика конфиденциальности', titleSupport: 'Sticker App – Поддержка и FAQ', footerSupport: 'Центр поддержки', footerPrivacy: 'Политика конфиденциальности' },
+    'ar': { navPrivacy: 'سياسة الخصوصية', navSupport: 'الدعم الفني', titleIndex: 'Sticker App – سياسة الخصوصية', titleSupport: 'Sticker App – الدعم الفني والأسئلة الشائعة', footerSupport: 'مركز المساعدة والدعم', footerPrivacy: 'سياسة الخصوصية' },
+    'hi': { navPrivacy: 'गोपनीयता नीति', navSupport: 'सहायता', titleIndex: 'Sticker App – गोपनीयता नीति', titleSupport: 'Sticker App – सहायता और अक्सर पूछे जाने वाले प्रश्न', footerSupport: 'सहायता केंद्र', footerPrivacy: 'गोपनीयता नीति' },
+    'id': { navPrivacy: 'Kebijakan Privasi', navSupport: 'Dukungan', titleIndex: 'Sticker App – Kebijakan Privasi', titleSupport: 'Sticker App – Dukungan & FAQ', footerSupport: 'Pusat Bantuan & Dukungan', footerPrivacy: 'Kebijakan Privasi' }
+  };
+
   function setLanguage(lang) {
     if (!languages.includes(lang)) {
       lang = 'tr';
     }
     
-    // Hide all language sections
+    // Switch active section
     document.querySelectorAll('.lang-section').forEach(el => {
       el.classList.remove('active');
     });
 
-    // Show target section
     const target = document.getElementById('lang-' + lang);
     if (target) {
       target.classList.add('active');
@@ -760,6 +773,30 @@ footer a:hover {
       select.value = lang;
     }
 
+    // Dynamically update Navbar and Footer texts
+    const currentUi = ui[lang] || ui['tr'];
+    const navPrivacy = document.getElementById('nav-privacy');
+    if (navPrivacy) navPrivacy.textContent = currentUi.navPrivacy;
+
+    const navSupport = document.getElementById('nav-support');
+    if (navSupport) navSupport.textContent = currentUi.navSupport;
+
+    const footerLink = document.getElementById('footer-link');
+    if (footerLink) {
+      if (document.body.dataset.page === 'index') {
+        footerLink.textContent = currentUi.footerSupport;
+      } else {
+        footerLink.textContent = currentUi.footerPrivacy;
+      }
+    }
+
+    // Update Document Title
+    if (document.body.dataset.page === 'support') {
+      document.title = currentUi.titleSupport;
+    } else {
+      document.title = currentUi.titleIndex;
+    }
+
     // Store in localStorage
     try {
       localStorage.setItem('stickerapp_lang', lang);
@@ -769,18 +806,15 @@ footer a:hover {
   document.addEventListener('DOMContentLoaded', () => {
     let initialLang = 'tr';
 
-    // 1. Check URL hash
     const hash = window.location.hash.replace('#', '');
     if (languages.includes(hash)) {
       initialLang = hash;
     } else {
-      // 2. Check localStorage
       try {
         const saved = localStorage.getItem('stickerapp_lang');
         if (saved && languages.includes(saved)) {
           initialLang = saved;
         } else {
-          // 3. Check browser language
           const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
           if (browserLang.startsWith('tr')) initialLang = 'tr';
           else if (browserLang.startsWith('de')) initialLang = 'de';
@@ -807,6 +841,5 @@ footer a:hover {
     }
   });
 </script>
-
 </body>
 </html>
