@@ -1,101 +1,812 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{APP_NAME}} – Privacy Policy</title>
-<meta name="description" content="Privacy policy for {{APP_NAME}}. The app collects no personal data.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sticker App – Support & FAQ</title>
+  <meta name="description" content="Support and Help Center for Sticker App. Frequently asked questions and issue reporting.">
+  <style>
+
+:root {
+  --bg: #ffffff;
+  --text: #1d1d1f;
+  --text-soft: #86868b;
+  --card-bg: #fbfbfd;
+  --card-border: #e5e5ea;
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --highlight-bg: rgba(0, 113, 227, 0.06);
+  --highlight-border: rgba(0, 113, 227, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #f5f5f7;
+    --text-soft: #a1a1a6;
+    --card-bg: #1c1c1e;
+    --card-border: #2c2c2e;
+    --accent: #2997ff;
+    --accent-hover: #0077ed;
+    --highlight-bg: rgba(41, 151, 255, 0.12);
+    --highlight-border: rgba(41, 151, 255, 0.3);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+header.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-icon {
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.lang-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 980px;
+  padding: 4px 12px;
+}
+
+.lang-picker select {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.lang-section {
+  display: none;
+}
+
+.lang-section.active {
+  display: block;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.subtitle {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+}
+
+.highlight-box {
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 36px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.card p {
+  color: var(--text-soft);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 26px 28px;
+  margin-bottom: 40px;
+}
+
+.contact-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  color: var(--text-soft);
+  margin-bottom: 22px;
+}
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border-radius: 980px;
+  text-decoration: none !important;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-github:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-github svg {
+  fill: currentColor;
+  width: 18px;
+  height: 18px;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--text-soft);
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* RTL support for Arabic */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .highlight-box {
+  text-align: right;
+}
+[dir="rtl"] .card {
+  text-align: right;
+}
+
+  </style>
 </head>
 <body>
-<main>
-  <nav>
-    <a href="#en">English</a>
-    <a href="#tr">Türkçe</a>
-    <a href="index.html">Support</a>
-  </nav>
+  <div class="container">
+    <header class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">🎨</span>
+        <span>Sticker App</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Privacy Policy</a>
+        <a href="support.html" class="active">Support</a>
+      </nav>
+      <div class="lang-picker">
+        <span>🌐</span>
+        <select id="langSelect" aria-label="Select Language">
 
-  <article id="en" lang="en">
-    <h1>Privacy Policy</h1>
-    <p class="soft">{{APP_NAME}} · Last updated: October 2026</p>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="pt-BR">🇧🇷 Português</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="id">🇮🇩 Bahasa Indonesia</option>
 
-    <p><strong>In short: {{APP_NAME}} does not collect, share or sell any personal data. Everything happens on your device.</strong></p>
+        </select>
+      </div>
+    </header>
 
-    <h2>1. What the app does</h2>
-    <p>{{APP_NAME}} lets you create stickers from photos, GIFs and videos that you choose, organize them into packs and add them to a messenger app.</p>
+    <main>
 
-    <h2>2. Information we collect</h2>
-    <p>None. The app has no accounts, no analytics, no advertising and no tracking. It does not send any data to us or to third parties.</p>
+  <article id="lang-tr" class="lang-section" lang="tr">
+    <h1>Sticker App Destek</h1>
+    <div class="subtitle">Fotoğraf, GIF ve videolardan çıkartmalar oluşturun, tek dokunuşla WhatsApp'a ekleyin.</div>
 
-    <h2>3. Your photos and videos</h2>
-    <p>You select media with the system photo picker, so the app only receives the items you choose. All processing (cropping, background removal, text, outlines and conversion to the sticker format) happens on your device. Temporary copies of selected videos may be kept in the app's temporary storage, which the system clears automatically.</p>
+    <section class="contact-card">
+      <h2>GitHub Destek ve Hata Bildirimi</h2>
+      <p>Sorularınız, karşılaştığınız hatalar veya yeni özellik talepleriniz için GitHub üzerinden konu açabilirsiniz. İncelemeyi hızlandırmak için cihaz modelinizi ve iOS sürümünüzü belirtmenizi öneririz. (GitHub herkese açık olduğu için lütfen kişisel bilgi eklemeyiniz.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>GitHub'da Konu Aç (Open Issue)</span>
+      </a>
+    </section>
 
-    <h2>4. Data stored on your device</h2>
-    <p>Your sticker packs, unfinished drafts and settings (such as the selected language) are stored locally in the app's storage. Deleting the app removes them. Depending on your settings, this storage may be included in your iCloud or device backups.</p>
-
-    <h2>5. Permissions</h2>
-    <p><strong>Photos (add only):</strong> used only to save PNG or GIF files to your photo library when you choose to save them. The app cannot read your photo library.</p>
-
-    <h2>6. Adding stickers to WhatsApp</h2>
-    <p>When you tap "Add to WhatsApp", the sticker pack is placed on your device's clipboard for up to 60 seconds and WhatsApp is opened so you can add the pack. From that point on, WhatsApp's own terms and privacy policy apply. We do not receive any of this data.</p>
-
-    <h2>7. Third-party code</h2>
-    <p>The app includes an open-source library for WebP image encoding. It runs entirely on your device and does not collect data.</p>
-
-    <h2>8. Children</h2>
-    <p>The app is not directed at children under 13. Since the app collects no data, no data is collected from children either.</p>
-
-    <h2>9. Changes to this policy</h2>
-    <p>If this policy changes, the updated version will be published on this page with a new date.</p>
-
-    <h2>10. Contact</h2>
-    <p>Questions about privacy? <a href="{{GITHUB_ISSUES_URL}}">Open an issue on GitHub</a>. Issues are public, so please don't include personal information.</p>
-    <!-- Prefer email? Remove these comment markers and replace the address:
-    <p>You can also write to <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
-    -->
+    <h2>Sıkça Sorulan Sorular</h2>
+    
+    <div class="card">
+      <h3>"WhatsApp'a Ekle" butonu çalışmıyor</h3>
+      <p>WhatsApp'ın cihazınızda yüklü ve güncel olduğundan emin olun. WhatsApp standartlarına göre bir pakette en az 3 çıkartma bulunmalıdır. Ayrıca statik ve animasyonlu çıkartmalar aynı paket içerisinde karıştırılamaz.</p>
+    </div>
+    <div class="card">
+      <h3>Animasyonlu çıkartmam pakete eklenmedi</h3>
+      <p>WhatsApp hareketli çıkartmalar için en fazla 500 KB boyut ve 10 saniye süre sınırı koymaktadır (statik çıkartmalarda 100 KB). Daha kısa bir klip veya daha sade bir animasyon deneyin.</p>
+    </div>
+    <div class="card">
+      <h3>Arka plan kaldırma çalışmadı</h3>
+      <p>Arka plan silme teknolojisi ana nesnenin belirgin olduğu fotoğraflarda en yüksek başarıyı sağlar ve iOS 17 veya üzerini gerektirir. Gerekirse 'Kenarları Düzelt' aracıyla manuel düzeltme yapabilirsiniz.</p>
+    </div>
+    <div class="card">
+      <h3>Uygulama dilini nasıl değiştirebilirim?</h3>
+      <p>Uygulama içerisindeki Ayarlar sekmesinden dilediğiniz dili seçebilirsiniz. Sticker App varsayılan olarak cihazınızın dilini otomatik algılar.</p>
+    </div>
+    <div class="card">
+      <h3>Kişisel verilerimi nasıl silebilirim?</h3>
+      <p>Tüm çıkartma paketleri ve ayarlar yalnızca sizin telefonunuzda saklanır. Uygulamayı cihazınızdan sildiğiniz anda tüm veriler kalıcı olarak silinir.</p>
+    </div>
   </article>
+  <article id="lang-en" class="lang-section" lang="en">
+    <h1>Sticker App Support</h1>
+    <div class="subtitle">Create custom stickers from photos, GIFs, and videos, then export to WhatsApp in one tap.</div>
 
-  <article id="tr" lang="tr">
-    <h1>Gizlilik Politikası</h1>
-    <p class="soft">{{APP_NAME}} · Son güncelleme: Ekim 2026</p>
+    <section class="contact-card">
+      <h2>GitHub Support & Bug Reporting</h2>
+      <p>For questions, bug reports, or feature suggestions, please open an issue on our GitHub repository. Including your iPhone/iPad model and iOS version helps us resolve issues faster. (Issues are public; please do not include private personal data.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Open an Issue on GitHub</span>
+      </a>
+    </section>
 
-    <p><strong>Kısaca: {{APP_NAME}} hiçbir kişisel veriyi toplamaz, paylaşmaz ya da satmaz. Her şey cihazında gerçekleşir.</strong></p>
-
-    <h2>1. Uygulama ne yapar</h2>
-    <p>{{APP_NAME}}, seçtiğin fotoğraf, GIF ve videolardan sticker oluşturmanı, bunları paketlerde düzenlemeni ve bir mesajlaşma uygulamasına eklemeni sağlar.</p>
-
-    <h2>2. Topladığımız bilgiler</h2>
-    <p>Hiçbiri. Uygulamada hesap, analiz aracı, reklam ya da takip yoktur. Bize ya da üçüncü taraflara hiçbir veri göndermez.</p>
-
-    <h2>3. Fotoğraf ve videoların</h2>
-    <p>Medyayı sistemin fotoğraf seçicisiyle seçersin, bu yüzden uygulama yalnızca seçtiğin öğeleri alır. Tüm işlemler (kırpma, arka plan silme, yazı, kontur ve sticker formatına çevirme) cihazında yapılır. Seçilen videoların geçici kopyaları uygulamanın geçici depolama alanında tutulabilir, sistem bunları kendiliğinden temizler.</p>
-
-    <h2>4. Cihazında saklanan veriler</h2>
-    <p>Sticker paketlerin, yarım kalan taslakların ve ayarların (seçilen dil gibi) uygulamanın kendi depolama alanında, yalnızca cihazında saklanır. Uygulamayı silmek bunları kaldırır. Ayarlarına bağlı olarak bu alan iCloud ya da cihaz yedeklerine dahil olabilir.</p>
-
-    <h2>5. İzinler</h2>
-    <p><strong>Fotoğraflar (yalnızca ekleme):</strong> Sadece kaydetmeyi seçtiğin PNG ya da GIF dosyalarını fotoğraf arşivine kaydetmek için kullanılır. Uygulama fotoğraf arşivini okuyamaz.</p>
-
-    <h2>6. WhatsApp'a sticker ekleme</h2>
-    <p>"WhatsApp'a ekle"ye bastığında sticker paketi cihazının panosuna en fazla 60 saniyeliğine konur ve paketi eklemen için WhatsApp açılır. Bu andan sonra WhatsApp'ın kendi şartları ve gizlilik politikası geçerlidir. Bu verilerin hiçbiri bize ulaşmaz.</p>
-
-    <h2>7. Üçüncü taraf kod</h2>
-    <p>Uygulama, WebP görsel kodlaması için açık kaynaklı bir kütüphane içerir. Tamamen cihazında çalışır ve veri toplamaz.</p>
-
-    <h2>8. Çocuklar</h2>
-    <p>Uygulama 13 yaş altı çocuklara yönelik değildir. Uygulama veri toplamadığı için çocuklardan da veri toplanmaz.</p>
-
-    <h2>9. Politikadaki değişiklikler</h2>
-    <p>Bu politika değişirse güncel hali yeni bir tarihle bu sayfada yayınlanır.</p>
-
-    <h2>10. İletişim</h2>
-    <p>Gizlilikle ilgili sorular için <a href="{{GITHUB_ISSUES_URL}}">GitHub'da bir konu (issue) açabilirsin</a>. Konular herkese açıktır, lütfen kişisel bilgi yazma.</p>
-    <!-- E-posta tercih edersen bu yorum işaretlerini kaldır ve adresi yaz:
-    <p>Ayrıca <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a> adresine yazabilirsin.</p>
-    -->
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="card">
+      <h3>"Add to WhatsApp" doesn't work</h3>
+      <p>Make sure WhatsApp is installed and updated. WhatsApp guidelines require at least 3 stickers per pack. Also, static and animated stickers cannot be mixed within the same pack.</p>
+    </div>
+    <div class="card">
+      <h3>My animated sticker was skipped</h3>
+      <p>WhatsApp limits animated stickers to a maximum of 500 KB and 10 seconds (static stickers to 100 KB). Try using a shorter clip or a simpler animation.</p>
+    </div>
+    <div class="card">
+      <h3>Background removal didn't work</h3>
+      <p>Background removal performs best on images with a clear, focused subject and requires iOS 17 or later. You can also fine-tune edges manually using the 'Refine Edges' tool.</p>
+    </div>
+    <div class="card">
+      <h3>How do I change the language?</h3>
+      <p>Navigate to the Settings tab inside the app to select your preferred language. The app also automatically respects your device's system language.</p>
+    </div>
+    <div class="card">
+      <h3>How do I delete my data?</h3>
+      <p>All sticker packs and drafts are stored strictly on your local device. Deleting the application completely and permanently removes all your data.</p>
+    </div>
   </article>
+  <article id="lang-de" class="lang-section" lang="de">
+    <h1>Sticker App Support</h1>
+    <div class="subtitle">Erstellen Sie Sticker aus Fotos, GIFs und Videos und fügen Sie sie mit einem Fingertipp zu WhatsApp hinzu.</div>
 
-  <footer>© {{APP_NAME}}</footer>
-</main>
+    <section class="contact-card">
+      <h2>GitHub Support & Fehlerberichte</h2>
+      <p>Bei Fragen, Fehlern oder Feature-Wünschen öffnen Sie bitte ein Issue auf GitHub. Bitte geben Sie Ihr Gerätemodell und Ihre iOS-Version an. (Issues sind öffentlich, keine privaten Daten teilen.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Issue auf GitHub erstellen</span>
+      </a>
+    </section>
+
+    <h2>Häufig gestellte Fragen (FAQ)</h2>
+    
+    <div class="card">
+      <h3>"Zu WhatsApp hinzufügen" funktioniert nicht</h3>
+      <p>Stellen Sie sicher, dass WhatsApp installiert und aktuell ist. Ein Paket muss mindestens 3 Sticker enthalten. Statische und animierte Sticker können nicht gemischt werden.</p>
+    </div>
+    <div class="card">
+      <h3>Mein animierter Sticker wurde übersprungen</h3>
+      <p>WhatsApp begrenzt animierte Sticker auf maximal 500 KB und 10 Sekunden (statische Sticker auf 100 KB). Verwenden Sie einen kürzeren Clip.</p>
+    </div>
+    <div class="card">
+      <h3>Hintergrundentfernung schlägt fehl</h3>
+      <p>Dies funktioniert am besten bei klaren Motiven und setzt iOS 17 voraus. Kanten können manuell angepasst werden.</p>
+    </div>
+    <div class="card">
+      <h3>Wie ändere ich die Sprache?</h3>
+      <p>Wählen Sie Ihre bevorzugte Sprache im Einstellungs-Tab der App. Standardmäßig wird die Systemsprache verwendet.</p>
+    </div>
+    <div class="card">
+      <h3>Wie lösche ich meine Daten?</h3>
+      <p>Alle Daten verbleiben ausschließlich lokal auf Ihrem Gerät. Durch Deinstallation der App werden alle Inhalte restlos gelöscht.</p>
+    </div>
+  </article>
+  <article id="lang-fr" class="lang-section" lang="fr">
+    <h1>Assistance Sticker App</h1>
+    <div class="subtitle">Créez des autocollants à partir de photos, GIFs et vidéos, puis ajoutez-les à WhatsApp en un geste.</div>
+
+    <section class="contact-card">
+      <h2>Support GitHub et Signalement de Bugs</h2>
+      <p>Pour toute question ou problème, ouvrez une issue sur GitHub. Précisez votre modèle d'iPhone et la version d'iOS. (Les issues étant publiques, n'incluez pas d'informations personnelles.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Ouvrir une Issue sur GitHub</span>
+      </a>
+    </section>
+
+    <h2>Foire Aux Questions</h2>
+    
+    <div class="card">
+      <h3>"Ajouter à WhatsApp" ne fonctionne pas</h3>
+      <p>Vérifiez que WhatsApp est installé et à jour. Un pack doit contenir au moins 3 stickers, et il n'est pas possible de mélanger stickers statiques et animés.</p>
+    </div>
+    <div class="card">
+      <h3>Mon sticker animé a été ignoré</h3>
+      <p>WhatsApp limite les stickers animés à 500 Ko et 10 secondes (100 Ko pour les statiques). Essayez un extrait plus court.</p>
+    </div>
+    <div class="card">
+      <h3>La suppression du fond n'a pas fonctionné</h3>
+      <p>Le détourage automatique nécessite un sujet bien visible et iOS 17 ou supérieur. Vous pouvez affiner les contours manuellement.</p>
+    </div>
+    <div class="card">
+      <h3>Comment changer la langue ?</h3>
+      <p>Rendez-vous dans l'onglet Réglages de l'application. Par défaut, l'application suit la langue de votre iPhone.</p>
+    </div>
+    <div class="card">
+      <h3>Comment supprimer mes données ?</h3>
+      <p>Toutes vos créations sont stockées localement. Supprimer l'application efface définitivement tous vos packs.</p>
+    </div>
+  </article>
+  <article id="lang-es" class="lang-section" lang="es">
+    <h1>Soporte de Sticker App</h1>
+    <div class="subtitle">Crea stickers desde fotos, GIFs y videos, y añádelos a WhatsApp con un solo toque.</div>
+
+    <section class="contact-card">
+      <h2>Soporte en GitHub y Reporte de Errores</h2>
+      <p>Para preguntas o reportar fallos, abre un issue en nuestro GitHub. Mencionar tu modelo de iPhone y versión de iOS nos ayuda a resolverlo antes. (Los tickets son públicos, no incluyas datos privados).</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Abrir un Issue en GitHub</span>
+      </a>
+    </section>
+
+    <h2>Preguntas Frecuentes</h2>
+    
+    <div class="card">
+      <h3>"Añadir a WhatsApp" no funciona</h3>
+      <p>Asegúrate de que WhatsApp esté actualizado. Un paquete debe tener al menos 3 stickers y no puede mezclar stickers estáticos y animados.</p>
+    </div>
+    <div class="card">
+      <h3>Mi sticker animado fue omitido</h3>
+      <p>WhatsApp limita los stickers animados a 500 KB y 10 segundos (100 KB para estáticos). Intenta con un clip más corto.</p>
+    </div>
+    <div class="card">
+      <h3>La eliminación de fondo no funcionó</h3>
+      <p>El recorte automático requiere buen contraste y requiere iOS 17 o superior. Puedes ajustar bordes con la herramienta manual.</p>
+    </div>
+    <div class="card">
+      <h3>¿Cómo cambio el idioma?</h3>
+      <p>Puedes cambiarlo desde la pestaña de Ajustes en la app o usar el idioma predeterminado de tu dispositivo.</p>
+    </div>
+    <div class="card">
+      <h3>¿Cómo elimino mis datos?</h3>
+      <p>Todo se almacena localmente en tu iPhone. Eliminar la app borra todos tus paquetes y ajustes de manera permanente.</p>
+    </div>
+  </article>
+  <article id="lang-it" class="lang-section" lang="it">
+    <h1>Supporto Sticker App</h1>
+    <div class="subtitle">Crea sticker da foto, GIF e video ed esportali su WhatsApp con un tocco.</div>
+
+    <section class="contact-card">
+      <h2>Supporto GitHub e Segnalazioni</h2>
+      <p>Per domande o segnalazioni di bug, apri una issue su GitHub indicando modello di iPhone e versione iOS. (Le issue sono pubbliche, non inserire dati personali).</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Apri un'Issue su GitHub</span>
+      </a>
+    </section>
+
+    <h2>Domande Frequenti</h2>
+    
+    <div class="card">
+      <h3>"Aggiungi a WhatsApp" non funziona</h3>
+      <p>Assicurati che WhatsApp sia installato e aggiornato. Ogni pacchetto deve contenere almeno 3 sticker. Non è consentito mischiare sticker statici e animati.</p>
+    </div>
+    <div class="card">
+      <h3>Lo sticker animato non viene aggiunto</h3>
+      <p>WhatsApp impone un limite di 500 KB e 10 secondi per gli sticker animati (100 KB per quelli statici).</p>
+    </div>
+    <div class="card">
+      <h3>Rimozione sfondo non riuscita</h3>
+      <p>Richiede iOS 17 o versioni successive e un soggetto ben definito. Puoi rifinire i bordi manualmente.</p>
+    </div>
+    <div class="card">
+      <h3>Come cambiare lingua?</h3>
+      <p>Seleziona la lingua desiderata nella schermata Impostazioni dell'applicazione.</p>
+    </div>
+    <div class="card">
+      <h3>Come cancellare i miei dati?</h3>
+      <p>Tutti i dati risiedono esclusivamente sul tuo iPhone. Rimuovere l'app cancella tutti i file.</p>
+    </div>
+  </article>
+  <article id="lang-pt-BR" class="lang-section" lang="pt-BR">
+    <h1>Suporte Sticker App</h1>
+    <div class="subtitle">Crie figurinhas a partir de fotos, GIFs e vídeos e envie para o WhatsApp em um toque.</div>
+
+    <section class="contact-card">
+      <h2>Suporte no GitHub e Relato de Bugs</h2>
+      <p>Para tirar dúvidas ou reportar problemas, abra uma issue no repositório GitHub. Informe seu modelo de iPhone e versão do iOS. (As issues são públicas, não envie dados pessoais.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Abrir uma Issue no GitHub</span>
+      </a>
+    </section>
+
+    <h2>Perguntas Frequentes</h2>
+    
+    <div class="card">
+      <h3>"Adicionar ao WhatsApp" não funciona</h3>
+      <p>Certifique-se de que o WhatsApp esteja instalado e atualizado. É necessário ter pelo menos 3 figurinhas por pacote, sem misturar estáticas com animadas.</p>
+    </div>
+    <div class="card">
+      <h3>Minha figurinha animada não foi adicionada</h3>
+      <p>O WhatsApp limita figurinhas animadas a 500 KB e 10 segundos (100 KB para estáticas). Tente um clipe mais curto.</p>
+    </div>
+    <div class="card">
+      <h3>A remoção de fundo falhou</h3>
+      <p>O recorte funciona melhor com assuntos nítidos e requer iOS 17 ou posterior. Você pode ajustar bordas manualmente.</p>
+    </div>
+    <div class="card">
+      <h3>Como alterar o idioma?</h3>
+      <p>Acesse a aba Ajustes no app para escolher seu idioma de preferência.</p>
+    </div>
+    <div class="card">
+      <h3>Como excluir meus dados?</h3>
+      <p>Tudo fica salvo somente no seu aparelho. Apagar o aplicativo remove todos os seus pacotes e dados.</p>
+    </div>
+  </article>
+  <article id="lang-ru" class="lang-section" lang="ru">
+    <h1>Поддержка Sticker App</h1>
+    <div class="subtitle">Создавайте стикеры из фото, GIF и видео и добавляйте их в WhatsApp в одно касание.</div>
+
+    <section class="contact-card">
+      <h2>Поддержка и отчёты об ошибках на GitHub</h2>
+      <p>Если у вас есть вопросы или вы нашли ошибку, создайте issue на GitHub. Укажите модель вашего iPhone и версию iOS. (Обращения публичны, не указывайте личные данные.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Создать Issue на GitHub</span>
+      </a>
+    </section>
+
+    <h2>Часто задаваемые вопросы</h2>
+    
+    <div class="card">
+      <h3>Не работает кнопка «Добавить в WhatsApp»</h3>
+      <p>Убедитесь, что WhatsApp установлен и обновлен. В наборе должно быть минимум 3 стикера. Нельзя смешивать статичные и анимированные стикеры в одном наборе.</p>
+    </div>
+    <div class="card">
+      <h3>Анимированный стикер был пропущен</h3>
+      <p>WhatsApp ограничивает анимированные стикеры до 500 КБ и 10 секунд (статичные — до 100 КБ). Используйте более короткий ролик.</p>
+    </div>
+    <div class="card">
+      <h3>Удаление фона не сработало</h3>
+      <p>Функция работает лучше всего на четких фото и требует iOS 17 или новее. Вы также можете подкорректировать края вручную.</p>
+    </div>
+    <div class="card">
+      <h3>Как переключить язык?</h3>
+      <p>Перейдите во вкладку «Настройки» в приложении. По умолчанию приложение использует язык системы.</p>
+    </div>
+    <div class="card">
+      <h3>Как удалить свои данные?</h3>
+      <p>Все стикеры хранятся исключительно на вашем устройстве. Удаление приложения удалит все наборы и данные.</p>
+    </div>
+  </article>
+  <article id="lang-ar" class="lang-section" lang="ar" dir="rtl">
+    <h1>دعم تطبيق Sticker App</h1>
+    <div class="subtitle">أنشئ ملصقات مخصصة من الصور وملفات GIF ومقاطع الفيديو، وأضفها إلى WhatsApp بنقرة واحدة.</div>
+
+    <section class="contact-card">
+      <h2>الدعم الفني والإبلاغ عن الأخطاء عبر GitHub</h2>
+      <p>إذا كان لديك سؤال أو واجهت مشكلة، يرجى فتح تذكرة (Issue) على GitHub مع ذكر طراز iPhone وإصدار iOS. (التذاكر عامة، يرجى عدم كتابة أي معلومات شخصية.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>فتح تذكرة على GitHub (Open Issue)</span>
+      </a>
+    </section>
+
+    <h2>الأسئلة الشائعة</h2>
+    
+    <div class="card">
+      <h3>زر «الإضافة إلى WhatsApp» لا يعمل</h3>
+      <p>تأكد من تثبيت وتحديث تطبيق WhatsApp. تنص شروط WhatsApp على وجود 3 ملصقات على الأقل في الحزمة الواحدة، مع عدم دمج الملصقات الثابتة والمتحركة معاً.</p>
+    </div>
+    <div class="card">
+      <h3>تم تخطي الملصق المتحرك</h3>
+      <p>يحدد WhatsApp حجم الملصقات المتحركة بحد أقصى 500 كيلوبايت و10 ثوانٍ (100 كيلوبايت للملصقات الثابتة). جرب مقطعاً أقصر.</p>
+    </div>
+    <div class="card">
+      <h3>إزالة الخلفية لم تعمل</h3>
+      <p>تعمل ميزة إزالة الخلفية بكفاءة على الصور واضحة المعالم وتتطلب نظام iOS 17 أو أحدث. يمكنك أيضاً تعديل الحواف يدوياً.</p>
+    </div>
+    <div class="card">
+      <h3>كيف أغير لغة التطبيق؟</h3>
+      <p>يمكنك اختيار اللغة المفضلة من علامة تبويب الإعدادات داخل التطبيق.</p>
+    </div>
+    <div class="card">
+      <h3>كيف أحذف بياناتي؟</h3>
+      <p>جميع البيانات محفوظة محلياً على هاتفك فقط. يؤدي حذف التطبيق إلى مسح كافة الملصقات والإعدادات نهائياً.</p>
+    </div>
+  </article>
+  <article id="lang-hi" class="lang-section" lang="hi">
+    <h1>Sticker App सहायता (Support)</h1>
+    <div class="subtitle">फ़ोटो, GIF और वीडियो से कस्टम स्टिकर बनाएं और एक टैप में WhatsApp में जोड़ें।</div>
+
+    <section class="contact-card">
+      <h2>GitHub सहायता और बग रिपोर्टिंग</h2>
+      <p>सवालों, समस्याओं या सुझावों के लिए GitHub पर एक समस्या (Issue) दर्ज करें। अपने iPhone मॉडल और iOS संस्करण का उल्लेख अवश्य करें। (यह सार्वजनिक मंच है, निजी जानकारी न दें।)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>GitHub पर समस्या दर्ज करें (Open Issue)</span>
+      </a>
+    </section>
+
+    <h2>अक्सर पूछे जाने वाले प्रश्न (FAQ)</h2>
+    
+    <div class="card">
+      <h3>"WhatsApp में जोड़ें" काम नहीं कर रहा है</h3>
+      <p>सुनिश्चित करें कि WhatsApp इंस्टॉल और अपडेटेड है। एक पैक में कम से कम 3 स्टिकर होने चाहिए और स्थिर व एनिमेटेड स्टिकर को मिश्रित नहीं किया जा सकता।</p>
+    </div>
+    <div class="card">
+      <h3>एनिमेटेड स्टिकर छूट गया</h3>
+      <p>WhatsApp एनिमेटेड स्टिकर्स के लिए अधिकतम 500 KB और 10 सेकंड की सीमा रखता है। एक छोटी क्लिप का उपयोग करें।</p>
+    </div>
+    <div class="card">
+      <h3>बैकग्राउंड रिमूवल ने काम नहीं किया</h3>
+      <p>स्पष्ट फ़ोटो पर यह सबसे अच्छा काम करता है और इसके लिए iOS 17 या बाद के संस्करण की आवश्यकता होती है।</p>
+    </div>
+    <div class="card">
+      <h3>मैं भाषा कैसे बदलूं?</h3>
+      <p>अपनी पसंदीदा भाषा चुनने के लिए ऐप के अंदर सेटिंग्स टैब पर जाएं।</p>
+    </div>
+    <div class="card">
+      <h3>मैं अपना डेटा कैसे हटाऊं?</h3>
+      <p>सभी स्टिकर पैक केवल आपके डिवाइस पर सहेजे जाते हैं। ऐप को हटाने से सभी डेटा हमेशा के लिए हट जाते हैं।</p>
+    </div>
+  </article>
+  <article id="lang-id" class="lang-section" lang="id">
+    <h1>Dukungan Sticker App</h1>
+    <div class="subtitle">Buat stiker kustom dari foto, GIF, dan video, lalu tambahkan ke WhatsApp dalam satu ketukan.</div>
+
+    <section class="contact-card">
+      <h2>Dukungan GitHub & Laporan Masalah</h2>
+      <p>Untuk pertanyaan atau laporan kendala, silakan buka issue di GitHub. Cantumkan model iPhone dan versi iOS Anda. (Issue bersifat publik, jangan sertakan data pribadi.)</p>
+      <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener" class="btn-github">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+</svg>
+        <span>Buka Masalah di GitHub (Open Issue)</span>
+      </a>
+    </section>
+
+    <h2>Pertanyaan yang Sering Diajukan</h2>
+    
+    <div class="card">
+      <h3>"Tambah ke WhatsApp" tidak berfungsi</h3>
+      <p>Pastikan WhatsApp telah terpasang dan diperbarui. Paket stiker harus berisi minimal 3 stiker dan tidak boleh menggabungkan stiker statis dan animasi.</p>
+    </div>
+    <div class="card">
+      <h3>Stiker animasi terlewati</h3>
+      <p>WhatsApp membatasi stiker animasi maksimal 500 KB dan 10 detik (stiker statis 100 KB). Coba klip yang lebih pendek.</p>
+    </div>
+    <div class="card">
+      <h3>Hapus latar belakang tidak berhasil</h3>
+      <p>Bekerja paling baik pada subjek yang jelas dan memerlukan iOS 17 atau lebih baru. Anda juga dapat menyempurnakan tepian secara manual.</p>
+    </div>
+    <div class="card">
+      <h3>Bagaimana cara mengganti bahasa?</h3>
+      <p>Buka tab Pengaturan di dalam aplikasi untuk memilih bahasa yang Anda inginkan.</p>
+    </div>
+    <div class="card">
+      <h3>Bagaimana cara menghapus data saya?</h3>
+      <p>Semua data hanya tersimpan secara lokal di perangkat Anda. Menghapus aplikasi akan menghapus seluruh data secara permanen.</p>
+    </div>
+  </article>
+    </main>
+
+    <footer>
+      <p>© 2026 Sticker App · <a href="index.html">Privacy Policy</a></p>
+    </footer>
+  </div>
+
+
+<script>
+  const languages = ['tr', 'en', 'de', 'fr', 'es', 'it', 'pt-BR', 'ru', 'ar', 'hi', 'id'];
+
+  function setLanguage(lang) {
+    if (!languages.includes(lang)) {
+      lang = 'tr';
+    }
+    
+    // Hide all language sections
+    document.querySelectorAll('.lang-section').forEach(el => {
+      el.classList.remove('active');
+    });
+
+    // Show target section
+    const target = document.getElementById('lang-' + lang);
+    if (target) {
+      target.classList.add('active');
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    }
+
+    // Update select element
+    const select = document.getElementById('langSelect');
+    if (select) {
+      select.value = lang;
+    }
+
+    // Store in localStorage
+    try {
+      localStorage.setItem('stickerapp_lang', lang);
+    } catch (e) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    let initialLang = 'tr';
+
+    // 1. Check URL hash
+    const hash = window.location.hash.replace('#', '');
+    if (languages.includes(hash)) {
+      initialLang = hash;
+    } else {
+      // 2. Check localStorage
+      try {
+        const saved = localStorage.getItem('stickerapp_lang');
+        if (saved && languages.includes(saved)) {
+          initialLang = saved;
+        } else {
+          // 3. Check browser language
+          const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          if (browserLang.startsWith('tr')) initialLang = 'tr';
+          else if (browserLang.startsWith('de')) initialLang = 'de';
+          else if (browserLang.startsWith('fr')) initialLang = 'fr';
+          else if (browserLang.startsWith('es')) initialLang = 'es';
+          else if (browserLang.startsWith('it')) initialLang = 'it';
+          else if (browserLang.startsWith('pt')) initialLang = 'pt-BR';
+          else if (browserLang.startsWith('ru')) initialLang = 'ru';
+          else if (browserLang.startsWith('ar')) initialLang = 'ar';
+          else if (browserLang.startsWith('hi')) initialLang = 'hi';
+          else if (browserLang.startsWith('id')) initialLang = 'id';
+          else if (browserLang.startsWith('en')) initialLang = 'en';
+        }
+      } catch (e) {}
+    }
+
+    setLanguage(initialLang);
+
+    const select = document.getElementById('langSelect');
+    if (select) {
+      select.addEventListener('change', (e) => {
+        setLanguage(e.target.value);
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
