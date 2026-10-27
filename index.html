@@ -1,68 +1,361 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{APP_NAME}} – Support</title>
-<meta name="description" content="Support and help for {{APP_NAME}}, the sticker maker for photos, GIFs and videos.">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sticker App – Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for Sticker App. No user data is collected, tracked, or shared.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1d1d1f;
+      --text-soft: #86868b;
+      --card-bg: #fbfbfd;
+      --card-border: #e5e5ea;
+      --accent: #0071e3;
+      --accent-hover: #0077ed;
+      --highlight-bg: rgba(0, 113, 227, 0.06);
+      --highlight-border: rgba(0, 113, 227, 0.2);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --text: #f5f5f7;
+        --text-soft: #a1a1a6;
+        --card-bg: #1c1c1e;
+        --card-border: #2c2c2e;
+        --accent: #2997ff;
+        --accent-hover: #0077ed;
+        --highlight-bg: rgba(41, 151, 255, 0.12);
+        --highlight-border: rgba(41, 151, 255, 0.3);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+    header.navbar {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      gap: 16px; padding-bottom: 24px; margin-bottom: 40px; border-bottom: 1px solid var(--card-border);
+    }
+    .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+    .brand-icon { font-size: 1.4rem; }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); font-weight: 600; }
+    .lang-picker { display: flex; align-items: center; gap: 6px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 980px; padding: 4px 12px; }
+    .lang-picker select { background: transparent; border: none; color: var(--text); font-size: 0.9rem; font-weight: 500; outline: none; cursor: pointer; font-family: inherit; }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+    h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.25; }
+    .subtitle { color: var(--text-soft); font-size: 0.95rem; margin-bottom: 32px; }
+    .highlight-box { background: var(--highlight-bg); border: 1px solid var(--highlight-border); border-radius: 14px; padding: 18px 22px; margin-bottom: 36px; font-size: 1.05rem; line-height: 1.55; }
+    h2 { font-size: 1.3rem; font-weight: 600; margin-top: 32px; margin-bottom: 12px; letter-spacing: -0.01em; }
+    p { margin-bottom: 16px; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--card-border); text-align: center; color: var(--text-soft); font-size: 0.85rem; }
+    [dir="rtl"] { text-align: right; }
+    [dir="rtl"] .highlight-box { text-align: right; }
+  </style>
 </head>
 <body>
-<main>
-  <nav>
-    <a href="#en">English</a>
-    <a href="#tr">Türkçe</a>
-    <a href="privacy.html">Privacy Policy</a>
-  </nav>
+  <div class="container">
+    <header class="navbar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">🎨</span>
+        <span>Sticker App</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Privacy Policy</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <div class="lang-picker">
+        <span>🌐</span>
+        <select id="langSelect" aria-label="Select Language">
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="pt-BR">🇧🇷 Português</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="id">🇮🇩 Bahasa Indonesia</option>
+        </select>
+      </div>
+    </header>
 
-  <article id="en" lang="en">
-    <h1>{{APP_NAME}} Support</h1>
-    <p class="soft">Make stickers from photos, GIFs and videos, then add them to your messenger in one tap.</p>
+    <main>
+      <!-- Türkçe -->
+      <article id="lang-tr" class="lang-section active" lang="tr">
+        <h1>Gizlilik Politikası</h1>
+        <div class="subtitle">Sticker App · Son güncelleme: Ekim 2026</div>
+        <div class="highlight-box">
+          <strong>Kısaca: Sticker App hiçbir kişisel veriyi toplamaz, saklamaz veya üçüncü taraflarla paylaşmaz. Bütün işlemler tamamen cihazınızda gerçekleşir.</strong>
+        </div>
+        <h2>1. Uygulama Ne Yapar?</h2>
+        <p>Sticker App; seçtiğiniz fotoğraf, GIF ve videolardan kişisel çıkartmalar oluşturmanızı, bunları paketler halinde düzenlemenizi ve doğrudan WhatsApp'a aktarmanızı sağlar.</p>
+        <h2>2. Topladığımız Bilgiler</h2>
+        <p>Hiçbir bilgi toplanmaz. Uygulama içerisinde üyelik hesabı, analitik izleme araçları, reklam ağları ve takip kodları bulunmaz. Sunucularımıza hiçbir veri iletilmez.</p>
+        <h2>3. Fotoğraf ve Videolarınız</h2>
+        <p>Medyayı Apple'ın sistem fotoğraf seçicisiyle seçersiniz; uygulama yalnızca seçtiğiniz öğeleri işler. Arka plan silme, kırpma ve kontur ekleme gibi işlemler tamamen cihazınızda yerel olarak yapılır.</p>
+        <h2>4. Cihazınızda Saklanan Veriler</h2>
+        <p>Sticker paketleriniz ve tercihleriniz yalnızca cihazınızın yerel hafızasında tutulur. Uygulamayı sildiğinizde bu veriler kalıcı olarak kaldırılır.</p>
+        <h2>5. İzinler</h2>
+        <p>Fotoğraflar: Yalnızca hazırladığınız çıkartmaları galerinize kaydetmek veya seçtiğiniz görselleri içe aktarmak için kullanılır.</p>
+        <h2>6. WhatsApp'a Aktarım</h2>
+        <p>Paketler sistem panosu üzerinden doğrudan WhatsApp'a aktarılır. Bu aktarım esnasında geliştiriciye hiçbir veri ulaşmaz.</p>
+        <h2>7. Açık Kaynak Bileşenler</h2>
+        <p>WebP çıkartma formatı için kullanılan açık kaynak kütüphaneler tamamen çevrimdışı çalışır ve veri toplamaz.</p>
+        <h2>8. Çocukların Gizliliği</h2>
+        <p>Uygulamamız 13 yaş altı çocuklar dahil olmak üzere hiçbir kullanıcıdan veri toplamaz.</p>
+        <h2>9. Değişiklikler</h2>
+        <p>Gizlilik politikasında yapılabilecek gelecekteki değişiklikler bu sayfada yeni geçerlilik tarihiyle duyurulacaktır.</p>
+        <h2>10. İletişim</h2>
+        <p>Gizlilikle ilgili tüm sorularınız için <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener">GitHub Issues</a> üzerinden konu açabilirsiniz.</p>
+      </article>
 
-    <h2>Contact</h2>
-    <p>Questions, bugs or ideas? <a href="{{GITHUB_ISSUES_URL}}">Open an issue on GitHub</a> and include your iPhone/iPad model and iOS version. Please don't include personal information, issues are public.</p>
-    <!-- Prefer email? Remove these comment markers and replace the address:
-    <p>You can also write to <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a>.</p>
-    -->
+      <!-- English -->
+      <article id="lang-en" class="lang-section" lang="en">
+        <h1>Privacy Policy</h1>
+        <div class="subtitle">Sticker App · Last updated: October 2026</div>
+        <div class="highlight-box">
+          <strong>In short: Sticker App does not collect, track, or share any personal data. All processing occurs 100% locally on your device.</strong>
+        </div>
+        <h2>1. What the App Does</h2>
+        <p>Sticker App lets you create custom stickers from photos, GIFs, and videos, organize them into packs, and export them directly to WhatsApp.</p>
+        <h2>2. Information We Collect</h2>
+        <p>None. The app contains no user accounts, no analytics SDKs, no advertising networks, and no trackers. We do not transmit any data to our servers or third parties.</p>
+        <h2>3. Photos and Videos</h2>
+        <p>Media is selected via the native iOS photo picker. All image processing—including background removal and outlines—happens entirely on-device.</p>
+        <h2>4. Data Stored on Device</h2>
+        <p>Your sticker packs and settings are stored exclusively in your device's local sandbox. Uninstalling the app permanently removes them.</p>
+        <h2>5. Permissions</h2>
+        <p>Photos: Used solely to import selected media and save generated stickers to your photo library.</p>
+        <h2>6. WhatsApp Export</h2>
+        <p>Stickers are transferred locally via the system pasteboard to WhatsApp. No data passes through our servers.</p>
+        <h2>7. Third-Party Code</h2>
+        <p>Open-source components (such as WebP encoding) execute offline on your device and collect no telemetry.</p>
+        <h2>8. Children's Privacy</h2>
+        <p>The app collects no personal data from anyone, including children under 13.</p>
+        <h2>9. Changes to Policy</h2>
+        <p>Any revisions to this privacy policy will be posted on this page with an updated timestamp.</p>
+        <h2>10. Contact</h2>
+        <p>For privacy questions, please open an issue on our <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank" rel="noopener">GitHub Issues</a> repository.</p>
+      </article>
 
-    <h2>Frequently asked questions</h2>
-    <div class="card"><h3>"Add to WhatsApp" doesn't work</h3>
-      <p>Make sure WhatsApp is installed and up to date. A pack needs at least 3 stickers, and a pack can't mix static and animated stickers.</p></div>
-    <div class="card"><h3>My animated sticker was skipped</h3>
-      <p>WhatsApp limits animated stickers to 500 KB and 10 seconds (static stickers to 100 KB). Try a shorter clip or a simpler image.</p></div>
-    <div class="card"><h3>Background removal didn't work</h3>
-      <p>It works best on photos with a clearly visible subject and needs iOS 17 or later. You can fix the edges by hand with "Refine edges".</p></div>
-    <div class="card"><h3>How do I change the language?</h3>
-      <p>Open the Settings tab and choose a language. The app also follows your device language by default.</p></div>
-    <div class="card"><h3>How do I delete my data?</h3>
-      <p>Everything is stored only on your device. Deleting the app removes all packs, drafts and settings.</p></div>
-  </article>
+      <!-- Deutsch -->
+      <article id="lang-de" class="lang-section" lang="de">
+        <h1>Datenschutzerklärung</h1>
+        <div class="subtitle">Sticker App · Letzte Aktualisierung: Oktober 2026</div>
+        <div class="highlight-box"><strong>Kurz gesagt: Sticker App sammelt, speichert oder teilt keinerlei personenbezogene Daten. Alle Prozesse finden lokal statt.</strong></div>
+        <h2>1. Was die App tut</h2><p>Erstellen Sie eigene Sticker aus Fotos, GIFs und Videos und exportieren Sie diese zu WhatsApp.</p>
+        <h2>2. Erfasste Daten</h2><p>Keine. Die App enthält keine Konten, Analysen oder Werbenetzwerke.</p>
+        <h2>3. Fotos und Videos</h2><p>Die Verarbeitung und Hintergrundentfernung erfolgt vollständig offline auf Ihrem Gerät.</p>
+        <h2>4. Lokale Speicherung</h2><p>Alle Daten bleiben lokal im App-Speicher und werden beim Löschen der App entfernt.</p>
+        <h2>5. Berechtigungen</h2><p>Fotos: Nur zum Importieren und Speichern fertiger Sticker in der Mediathek.</p>
+        <h2>6. WhatsApp-Export</h2><p>Die Übergabe erfolgt lokal über die Zwischenablage an WhatsApp.</p>
+        <h2>7. Drittanbieter-Code</h2><p>Open-Source-Komponenten wie WebP laufen offline ohne Telemetrie.</p>
+        <h2>8. Jugendschutz</h2><p>Es werden keinerlei Daten von Minderjährigen erfasst.</p>
+        <h2>9. Änderungen</h2><p>Änderungen dieser Richtlinie werden direkt auf dieser Seite veröffentlicht.</p>
+        <h2>10. Kontakt</h2><p>Fragen können über <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a> gestellt werden.</p>
+      </article>
 
-  <article id="tr" lang="tr">
-    <h1>{{APP_NAME}} Destek</h1>
-    <p class="soft">Fotoğraf, GIF ve videolardan sticker yap, tek dokunuşla mesajlaşma uygulamana ekle.</p>
+      <!-- Français -->
+      <article id="lang-fr" class="lang-section" lang="fr">
+        <h1>Politique de Confidentialité</h1>
+        <div class="subtitle">Sticker App · Dernière mise à jour : Octobre 2026</div>
+        <div class="highlight-box"><strong>En bref : Sticker App ne collecte, ne stocke et ne partage aucune donnée personnelle. Tout se passe sur votre appareil.</strong></div>
+        <h2>1. Fonctionnement</h2><p>Créez des autocollants à partir de vos photos, GIFs et vidéos et exportez-les vers WhatsApp.</p>
+        <h2>2. Données collectées</h2><p>Aucune. Pas de compte, pas d'analyse statistique et pas de publicité.</p>
+        <h2>3. Vos photos et vidéos</h2><p>Le détourage et le traitement graphique s'effectuent entièrement en local sur l'appareil.</p>
+        <h2>4. Stockage local</h2><p>Vos packs sont enregistrés sur votre appareil et supprimés avec l'application.</p>
+        <h2>5. Autorisations</h2><p>Photos : requise uniquement pour importer et enregistrer vos créations.</p>
+        <h2>6. Ajout à WhatsApp</h2><p>L'exportation se fait en local via le presse-papiers d'iOS.</p>
+        <h2>7. Code tiers</h2><p>Les bibliothèques WebP fonctionnent 100 % hors ligne sans transmission.</p>
+        <h2>8. Enfants</h2><p>Aucune donnée n'est collectée auprès des enfants.</p>
+        <h2>9. Modifications</h2><p>Toute mise à jour sera publiée directement sur cette page.</p>
+        <h2>10. Contact</h2><p>Posez vos questions sur <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a>.</p>
+      </article>
 
-    <h2>İletişim</h2>
-    <p>Soru, hata ya da fikirlerin için <a href="{{GITHUB_ISSUES_URL}}">GitHub'da bir konu (issue) aç</a> ve iPhone/iPad modelini ile iOS sürümünü belirt. Lütfen kişisel bilgi yazma, konular herkese açıktır.</p>
-    <!-- E-posta tercih edersen bu yorum işaretlerini kaldır ve adresi yaz:
-    <p>Ayrıca <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a> adresine yazabilirsin.</p>
-    -->
+      <!-- Español -->
+      <article id="lang-es" class="lang-section" lang="es">
+        <h1>Política de Privacidad</h1>
+        <div class="subtitle">Sticker App · Última actualización: Octubre 2026</div>
+        <div class="highlight-box"><strong>En resumen: Sticker App no recopila, almacena ni comparte datos personales. Todo se procesa en tu dispositivo.</strong></div>
+        <h2>1. Qué hace la aplicación</h2><p>Crea stickers a partir de fotos, GIFs y videos, y añádelos directamente a WhatsApp.</p>
+        <h2>2. Datos recopilados</h2><p>Ninguno. La app no contiene analíticas, anuncios ni cuentas de usuario.</p>
+        <h2>3. Fotos y videos</h2><p>El recorte y la edición se ejecutan localmente en el procesador de tu dispositivo.</p>
+        <h2>4. Almacenamiento</h2><p>Tus stickers se guardan localmente y se borran si desinstalas la app.</p>
+        <h2>5. Permisos</h2><p>Fotos: únicamente para importar y guardar tus stickers en la galería.</p>
+        <h2>6. Exportar a WhatsApp</h2><p>La transferencia ocurre de forma local y segura en tu dispositivo.</p>
+        <h2>7. Código de terceros</h2><p>Los módulos de código abierto funcionan sin conexión.</p>
+        <h2>8. Menores</h2><p>No recopilamos datos de menores de 13 años.</p>
+        <h2>9. Cambios</h2><p>Cualquier actualización se publicará en esta página.</p>
+        <h2>10. Contacto</h2><p>Abre un issue en <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a> para consultas.</p>
+      </article>
 
-    <h2>Sık sorulan sorular</h2>
-    <div class="card"><h3>"WhatsApp'a ekle" çalışmıyor</h3>
-      <p>WhatsApp'ın yüklü ve güncel olduğundan emin ol. Bir pakette en az 3 sticker olmalı, sabit ve animasyonlu stickerlar aynı pakette olamaz.</p></div>
-    <div class="card"><h3>Animasyonlu stickerım atlandı</h3>
-      <p>WhatsApp animasyonlu stickerlar için 500 KB ve 10 saniye sınırı koyar (sabit stickerlar için 100 KB). Daha kısa bir klip ya da daha sade bir görsel dene.</p></div>
-    <div class="card"><h3>Arka plan silme çalışmadı</h3>
-      <p>Konunun net göründüğü fotoğraflarda en iyi sonucu verir ve iOS 17 ya da üstünü gerektirir. Kenarları "Kenarları düzelt" ile elle düzeltebilirsin.</p></div>
-    <div class="card"><h3>Dili nasıl değiştiririm?</h3>
-      <p>Ayarlar sekmesinden bir dil seç. Uygulama varsayılan olarak cihaz dilini kullanır.</p></div>
-    <div class="card"><h3>Verilerimi nasıl silerim?</h3>
-      <p>Her şey sadece cihazında saklanır. Uygulamayı silmek tüm paketleri, taslakları ve ayarları kaldırır.</p></div>
-  </article>
+      <!-- Italiano -->
+      <article id="lang-it" class="lang-section" lang="it">
+        <h1>Informativa sulla Privacy</h1>
+        <div class="subtitle">Sticker App · Ultimo aggiornamento: Ottobre 2026</div>
+        <div class="highlight-box"><strong>In breve: Sticker App non raccoglie né condivide alcun dato personale. Tutto avviene sul tuo dispositivo.</strong></div>
+        <h2>1. Cosa fa l'app</h2><p>Crea pacchetti di sticker personalizzati da foto, GIF e video ed esportali su WhatsApp.</p>
+        <h2>2. Dati raccolti</h2><p>Nessuno. Nessun account, tracciamento o modulo pubblicitario.</p>
+        <h2>3. Foto e video</h2><p>L'elaborazione delle immagini e la rimozione dello sfondo avvengono offline sul dispositivo.</p>
+        <h2>4. Salvataggio dati</h2><p>I contenuti rimangono nella memoria locale dell'iPhone e svaniscono con l'eliminazione dell'app.</p>
+        <h2>5. Permessi</h2><p>Foto: usato solo per selezionare le immagini e salvare i nuovi sticker.</p>
+        <h2>6. WhatsApp</h2><p>Gli sticker vengono passati a WhatsApp localmente via appunti di sistema.</p>
+        <h2>7. Codice terze parti</h2><p>I componenti WebP funzionano offline senza inviare telemetria.</p>
+        <h2>8. Minori</h2><p>Nessun dato viene raccolto da utenti di qualsiasi età.</p>
+        <h2>9. Modifiche</h2><p>Eventuali revisioni saranno visibili su questa pagina web.</p>
+        <h2>10. Contatto</h2><p>Scrivici aprendo un ticket su <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a>.</p>
+      </article>
 
-  <footer>© {{APP_NAME}} · <a href="privacy.html">Privacy Policy / Gizlilik Politikası</a></footer>
-  
-</main>
+      <!-- Português (Brasil) -->
+      <article id="lang-pt-BR" class="lang-section" lang="pt-BR">
+        <h1>Política de Privacidade</h1>
+        <div class="subtitle">Sticker App · Última atualização: Outubro de 2026</div>
+        <div class="highlight-box"><strong>Em resumo: O Sticker App não coleta nem compartilha dados pessoais. Todo o processamento é 100% local.</strong></div>
+        <h2>1. O aplicativo</h2><p>Crie figurinhas a partir de fotos, GIFs e vídeos para exportar diretamente para o WhatsApp.</p>
+        <h2>2. Informações coletadas</h2><p>Nenhuma. Não há login, rastreadores ou anúncios no aplicativo.</p>
+        <h2>3. Fotos e vídeos</h2><p>O recorte inteligente e edição funcionam inteiramente no aparelho sem envio a servidores.</p>
+        <h2>4. Armazenamento</h2><p>Suas figurinhas ficam salvas apenas no aparelho e são excluídas ao remover o app.</p>
+        <h2>5. Permissões</h2><p>Fotos: apenas para importar imagens e salvar figurinhas na biblioteca.</p>
+        <h2>6. Exportação</h2><p>A adição ao WhatsApp ocorre de forma local pelo próprio sistema.</p>
+        <h2>7. Bibliotecas</h2><p>Bibliotecas WebP de código aberto rodam offline no celular.</p>
+        <h2>8. Crianças</h2><p>Não há coleta de dados de nenhum usuário, incluindo crianças.</p>
+        <h2>9. Atualizações</h2><p>Mudanças futuras serão publicadas nesta página.</p>
+        <h2>10. Contato</h2><p>Dúvidas podem ser enviadas abrindo uma issue no <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a>.</p>
+      </article>
+
+      <!-- Русский -->
+      <article id="lang-ru" class="lang-section" lang="ru">
+        <h1>Политика конфиденциальности</h1>
+        <div class="subtitle">Sticker App · Последнее обновление: Октябрь 2026</div>
+        <div class="highlight-box"><strong>Кратко: Sticker App не собирает и не передает данные. Все операции выполняются на вашем устройстве.</strong></div>
+        <h2>1. Возможности</h2><p>Создание стикеров из фото, GIF и видео с прямым добавлением в WhatsApp.</p>
+        <h2>2. Сбор данных</h2><p>Отсутствует. Нет рекламы, аккаунтов и аналитических трекеров.</p>
+        <h2>3. Медиафайлы</h2><p>Удаление фона и обработка картинок производятся локально на iPhone.</p>
+        <h2>4. Хранение</h2><p>Все наборы стикеров сохраняются только во внутренней памяти приложения.</p>
+        <h2>5. Доступ к фото</h2><p>Требуется исключительно для импорта и сохранения готовых стикеров.</p>
+        <h2>6. Экспорт в WhatsApp</h2><p>Передача наборов происходит через локальный системный буфер обмена.</p>
+        <h2>7. Сторонний код</h2><p>Библиотеки WebP работают полностью автономно.</p>
+        <h2>8. Дети</h2><p>Приложение не собирает информацию о несовершеннолетних.</p>
+        <h2>9. Изменения</h2><p>Все изменения публикуются на данной странице.</p>
+        <h2>10. Контакты</h2><p>Вопросы принимаются через <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a>.</p>
+      </article>
+
+      <!-- العربية -->
+      <article id="lang-ar" class="lang-section" lang="ar" dir="rtl">
+        <h1>سياسة الخصوصية</h1>
+        <div class="subtitle">Sticker App · آخر تحديث: أكتوبر 2026</div>
+        <div class="highlight-box"><strong>باختصار: لا يجمع تطبيق Sticker App أي بيانات شخصية ولا يشاركها. تتم جميع العمليات محلياً على هاتفك.</strong></div>
+        <h2>1. وظيفة التطبيق</h2><p>إنشاء ملصقات مخصصة من الصور ومقاطع الفيديو وإضافتها إلى WhatsApp بنقرة واحدة.</p>
+        <h2>2. البيانات المجمعة</h2><p>لا شيء. لا يحتوي التطبيق على إعلانات أو حسابات أو أدوات تعقب.</p>
+        <h2>3. الصور ومقاطع الفيديو</h2><p>تتم معالجة الصور وإزالة الخلفيات محلياً داخل جهازك دون إرسالها إلى خوادم.</p>
+        <h2>4. التخزين المحلي</h2><p>تُحفظ حزم الملصقات في ذاكرة الهاتف فقط وتُحذف تلقائياً عند حذف التطبيق.</p>
+        <h2>5. الأذونات</h2><p>الصور: تُستخدم فقط لاختيار الصور وحفظ الملصقات المنتهية في الألبوم.</p>
+        <h2>6. التصدير إلى WhatsApp</h2><p>يتم نقل الملصقات محلياً عبر حافظة النظام إلى WhatsApp.</p>
+        <h2>7. مكتبات المصدر المفتوح</h2><p>تعمل مكتبات WebP دون اتصال بالإنترنت.</p>
+        <h2>8. خصوصية الأطفال</h2><p>التطبيق لا يجمع أي معلومات من أي مستخدم بما في ذلك الأطفال.</p>
+        <h2>9. التعديلات</h2><p>سيتم نشر أي تغييرات في سياسة الخصوصية على هذه الصفحة مباشرة.</p>
+        <h2>10. التواصل</h2><p>للاستفسارات، يرجى فتح تذكرة عبر <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a>.</p>
+      </article>
+
+      <!-- हिन्दी -->
+      <article id="lang-hi" class="lang-section" lang="hi">
+        <h1>गोपनीयता नीति</h1>
+        <div class="subtitle">Sticker App · अंतिम अपडेट: अक्टूबर 2026</div>
+        <div class="highlight-box"><strong>संक्षेप में: Sticker App कोई भी व्यक्तिगत डेटा एकत्र या साझा नहीं करता है। सब कुछ डिवाइस पर होता है।</strong></div>
+        <h2>1. ऐप क्या करता है</h2><p>फ़ोटो, GIF और वीडियो से स्टिकर बनाएं और उन्हें सीधे WhatsApp में जोड़ें।</p>
+        <h2>2. एकत्र की गई जानकारी</h2><p>कोई नहीं। ऐप में कोई खाता, विज्ञापन या विश्लेषणात्मक ट्रैकर नहीं है।</p>
+        <h2>3. फ़ोटो और वीडियो</h2><p>बैकग्राउंड हटाना और संपादन पूरी तरह से डिवाइस पर ही स्थानीय रूप से होता है।</p>
+        <h2>4. डिवाइस स्टोरेज</h2><p>आपके स्टिकर केवल आपके फोन पर सहेजे जाते हैं। ऐप हटाने से डेटा भी हट जाता है।</p>
+        <h2>5. अनुमतियां</h2><p>फ़ोटो: केवल छवियों को आयात करने और तैयार स्टिकर सहेजने के लिए।</p>
+        <h2>6. WhatsApp ट्रांसफर</h2><p>स्टिकर सीधे सिस्टम क्लिपबोर्ड के माध्यम से स्थानीय रूप से ट्रांसफर होते हैं।</p>
+        <h2>7. ओपन-सोर्स कोड</h2><p>WebP लाइब्रेरी पूरी तरह से ऑफ़लाइन काम करती हैं।</p>
+        <h2>8. बच्चों की गोपनीयता</h2><p>हम बच्चों सहित किसी से भी कोई डेटा एकत्र नहीं करते हैं।</p>
+        <h2>9. नीति में बदलाव</h2><p>कोई भी संशोधन इसी पृष्ठ पर अपडेट किया जाएगा।</p>
+        <h2>10. संपर्क</h2><p>सवालों के लिए <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a> पर जाएं।</p>
+      </article>
+
+      <!-- Bahasa Indonesia -->
+      <article id="lang-id" class="lang-section" lang="id">
+        <h1>Kebijakan Privasi</h1>
+        <div class="subtitle">Sticker App · Terakhir diperbarui: Oktober 2026</div>
+        <div class="highlight-box"><strong>Singkatnya: Sticker App tidak mengumpulkan atau membagikan data pribadi apa pun. Semua proses berjalan di perangkat.</strong></div>
+        <h2>1. Fungsi Aplikasi</h2><p>Membuat stiker kustom dari foto, GIF, dan video lalu mengekspornya ke WhatsApp.</p>
+        <h2>2. Data yang Dikumpulkan</h2><p>Tidak ada. Tanpa akun, tanpa analitik pelacakan, dan tanpa iklan.</p>
+        <h2>3. Foto dan Video</h2><p>Hapus latar belakang dan pengeditan gambar diproses secara lokal di perangkat Anda.</p>
+        <h2>4. Penyimpanan</h2><p>Semua paket stiker tersimpan di memori perangkat dan hilang jika aplikasi dihapus.</p>
+        <h2>5. Izin</h2><p>Foto: hanya untuk memilih gambar dan menyimpan stiker yang sudah selesai.</p>
+        <h2>6. Ekspor WhatsApp</h2><p>Transfer stiker berjalan secara lokal melalui papan klip sistem.</p>
+        <h2>7. Pustaka Pihak Ketiga</h2><p>Modul WebP bekerja secara offline tanpa telemetri.</p>
+        <h2>8. Privasi Anak</h2><p>Aplikasi tidak mengumpulkan data siapa pun termasuk anak-anak.</p>
+        <h2>9. Pembaruan</h2><p>Perubahan kebijakan privasi akan langsung diperbarui di halaman ini.</p>
+        <h2>10. Kontak</h2><p>Silakan buka laporan di <a href="https://github.com/fatiherolbahar/stickerapp-privacy/issues" target="_blank">GitHub Issues</a>.</p>
+      </article>
+    </main>
+
+    <footer>
+      <p>© 2026 Sticker App · <a href="support.html">Support & Help Center</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const languages = ['tr', 'en', 'de', 'fr', 'es', 'it', 'pt-BR', 'ru', 'ar', 'hi', 'id'];
+    function setLanguage(lang) {
+      if (!languages.includes(lang)) lang = 'tr';
+      document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById('lang-' + lang);
+      if (target) {
+        target.classList.add('active');
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+      }
+      const select = document.getElementById('langSelect');
+      if (select) select.value = lang;
+      try { localStorage.setItem('stickerapp_lang', lang); } catch (e) {}
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      let initialLang = 'tr';
+      const hash = window.location.hash.replace('#', '');
+      if (languages.includes(hash)) {
+        initialLang = hash;
+      } else {
+        try {
+          const saved = localStorage.getItem('stickerapp_lang');
+          if (saved && languages.includes(saved)) {
+            initialLang = saved;
+          } else {
+            const browserLang = (navigator.language || '').toLowerCase();
+            if (browserLang.startsWith('tr')) initialLang = 'tr';
+            else if (browserLang.startsWith('de')) initialLang = 'de';
+            else if (browserLang.startsWith('fr')) initialLang = 'fr';
+            else if (browserLang.startsWith('es')) initialLang = 'es';
+            else if (browserLang.startsWith('it')) initialLang = 'it';
+            else if (browserLang.startsWith('pt')) initialLang = 'pt-BR';
+            else if (browserLang.startsWith('ru')) initialLang = 'ru';
+            else if (browserLang.startsWith('ar')) initialLang = 'ar';
+            else if (browserLang.startsWith('hi')) initialLang = 'hi';
+            else if (browserLang.startsWith('id')) initialLang = 'id';
+            else if (browserLang.startsWith('en')) initialLang = 'en';
+          }
+        } catch (e) {}
+      }
+      setLanguage(initialLang);
+      document.getElementById('langSelect').addEventListener('change', (e) => setLanguage(e.target.value));
+    });
+  </script>
 </body>
 </html>
